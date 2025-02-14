@@ -14,9 +14,14 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 DATA_FILE = "data.json"
 
 roles = {
-    "Tank": ["Warrior", "Demon Hunter"],
-    "Healer": ["Paladin", "Priest"],
-    "DPS": ["Rogue", "Shaman"]
+    "Tank":   ["Protection Warrior", "Vengeance Demon Hunter", "Guardian Druid", "Brewmaster Monk", "Protection Paladin", "Blood Death Knight"],
+    
+    "Healer": ["Holy Paladin", "Holy Priest", "Discipline Priest", "Restoration Shaman", "Mistweaver Monk", "Restoration Druid", "Preservation Evoker"],
+    
+    "DPS":    ["Assassination Rogue", "Outlaw Rogue", "Subtlety Rogue", "Enchancement Shaman", "Elemental Shaman", "Frost Death Knight", "Unholy Death Knight",
+              "Havoc Demon Hunter", "Feral Druid", "Balance Druid", "Beast Mastery Hunter", "Marksmanship Hunter", "Survival Hunter", "Arcane Mage", 
+              "Fire Mage", "Frost Mage", "Windwalker Monk", "Retribution Paladin", "Shadow Priest", "Affliction Warlock", "Demonology Warlock", 
+              "Destruction Warlock", "Arms Warrior", "Fury Warrior", "Augmentation Evoker", "Devestation Evoker"]
 }
 
 def load_data():
@@ -135,7 +140,7 @@ async def start(ctx, *, args=None):
         if len(parts) == 2:
             title, description = parts
         else:
-            await ctx.send('Please provide both a title and description, separated by " | ".\n Example: !start "Wont happen again (bolvar probably)" | "If I die once, I die twice" selections!')
+            await ctx.send('Please provide both a title and description, separated by " | ".\n Example: !start "Wont happen again (bolvar probably)" | "If I die once, I die twice" ')
             return
 
     view = RoleSelectionView(title=title, description=description)
